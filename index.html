@@ -19,18 +19,18 @@ button{font:inherit;cursor:pointer}button:focus-visible{outline:4px solid #ffd45
 <div class="app">
 <header class="top"><div class="brand"><div class="brand-mark">◆</div><div>WORD JUMP<small>Vocabulary Obby</small></div></div><div class="top-actions"><button id="soundTop" class="icon-btn" aria-label="Toggle sound">🔊 Sound</button><button id="readTop" class="icon-btn" aria-label="Toggle read aloud">🗣️ Read</button></div></header>
 <main>
+
 <section id="home" class="screen active">
-<div class="hero"><div class="hero-copy"><div class="eyebrow">✨ Study mode: adventure</div><h1>Jump into<br><span>word power.</span></h1><p>Hop across the obby, answer each word challenge, and collect gems. Pick a course and see how many you can get right!</p><div class="hint"><span>⌨️</span> Move with ← → or A / D · Jump with SPACE</div><div style="margin-top:28px"><button id="chooseBtn" class="primary">CHOOSE A COURSE&nbsp; →</button></div></div><div class="hero-art" aria-label="A little character jumping across platforms"><div class="sun"></div><span class="cloud c1">☁️</span><span class="cloud c2">☁️</span><div class="mount m1"></div><div class="mount m2"></div><div class="trail">✦ · ✦</div><div class="platform p1"></div><div class="platform p2"></div><div class="platform p3"></div><div class="hero-kid">🧑‍🚀</div><div class="gem">💎</div></div></div>
-</section>
-<section id="courses" class="screen">
-<div class="course-wrap"><div class="section-head"><div><h2>Choose your course</h2><p>Pick a word set to practice. You can replay any course.</p></div><button id="homeBtn" class="back-btn">← Home</button></div>
+<div class="course-wrap">
+<div style="color:var(--muted);margin-bottom:18px">Pick a word set to practice. Tap a course to start.</div>
 <div class="course-grid">
-<button class="course-card selected" data-course="geography"><div class="course-icon">🌎</div><h3>1.4 Geography</h3><p>Maps, landforms, and water words. Choose the word that matches the clue.</p></button>
+<button class="course-card" data-course="geography"><div class="course-icon">🌎</div><h3>1.4 Geography</h3><p>Maps, landforms, and water words. Choose the word that matches the clue.</p></button>
 <button class="course-card" data-course="wolf"><div class="course-icon">🐺</div><h3>Wolf! Wolf! Context Clues</h3><p>Read each sentence and pick the word that makes the most sense.</p></button>
 <button class="course-card" data-course="poetry"><div class="course-icon">📚</div><h3>Unit 2 Poetry Words</h3><p>Practice behave, express, poem, rhyme, rhythm, and more.</p><span class="tag">Practice · not tested</span></button>
 <button class="course-card" data-course="energy"><div class="course-icon">⚡</div><h3>Unit 4 Energy</h3><p>Learn energy words for electricity, fuels, and renewable sources.</p></button>
 </div>
-<div class="menu-bottom"><div class="menu-options"><button id="speedOpt" class="pill">⏱ Speed run: off</button><button id="readOpt" class="pill">🗣 Read aloud: off</button></div></div></div>
+<div class="menu-bottom"><div class="menu-options"><button id="speedOpt" class="pill">⏱ Speed run: off</button><button id="readOpt" class="pill">🗣 Read aloud: off</button></div></div>
+</div>
 </section>
 <section id="game" class="screen"><div class="game-shell">
 <div class="hud"><div class="hud-left"><button id="exitBtn" class="icon-btn">← Courses</button><div class="course-label" id="courseName">1.4 Geography<small id="courseSub">Word challenge</small></div></div><div class="hud-right"><div id="scoreBox" class="stat">💎 0</div><div id="timerBox" class="stat" style="display:none">⏱ 0:00</div><div id="bestBox" class="stat">Best: —</div></div></div>
@@ -90,7 +90,7 @@ const courses={
  ]}
 };
 let selected="geography",speed=false,readAloud=false,sound=true,deck=[],index=0,score=0,unlocked=false,startedAt=0,timerId=null,avatarX=16;
-const $=id=>document.getElementById(id);const screens=["home","courses","game","finish"];
+const $=id=>document.getElementById(id);const screens=["home","game","finish"];
 function show(name){screens.forEach(s=>$(s).classList.toggle("active",s===name));window.scrollTo({top:0,behavior:"smooth"})}
 function tone(freq=620,duration=.09){if(!sound)return;try{let c=new(window.AudioContext||window.webkitAudioContext)(),o=c.createOscillator(),g=c.createGain();o.frequency.value=freq;o.type="sine";g.gain.setValueAtTime(.08,c.currentTime);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+duration);o.connect(g);g.connect(c.destination);o.start();o.stop(c.currentTime+duration)}catch(e){}}
 function speak(text){if(readAloud&&"speechSynthesis"in window){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(text);u.rate=.88;speechSynthesis.speak(u)}}
@@ -107,7 +107,7 @@ function jump(){if(!unlocked){$("feedback").textContent="Answer correctly first 
 function finish(){if(timerId){clearInterval(timerId);timerId=null}let prior=best(),isNew=score>prior;if(isNew)localStorage.setItem(bestKey(),String(score));$("progressFill").style.width="100%";let elapsed=Math.floor((Date.now()-startedAt)/1000);$("finishText").textContent=`You collected ${score} gem${score===1?"":"s"} and practiced ${deck.length} questions in ${Math.floor(elapsed/60)}:${String(elapsed%60).padStart(2,"0")}.${isNew?" New personal best!":""}`;tone(960,.32);show("finish")}
 function move(dir){avatarX=Math.max(5,Math.min(76,avatarX+dir*3));$("avatar").style.left=avatarX+"%"}
 document.querySelectorAll(".course-card").forEach(card=>card.addEventListener("click",()=>{selected=card.dataset.course;begin()}));
-$("chooseBtn").onclick=()=>show("courses");$("homeBtn").onclick=()=>show("home");$("exitBtn").onclick=()=>{if(timerId)clearInterval(timerId);show("courses")};$("jumpBtn").onclick=jump;$("againBtn").onclick=begin;$("finishCoursesBtn").onclick=()=>show("courses");$("speedOpt").onclick=()=>{speed=!speed;$("speedOpt").classList.toggle("on",speed);$("speedOpt").textContent="⏱ Speed run: "+(speed?"on":"off")};$("readOpt").onclick=()=>setRead(!readAloud);$("readTop").onclick=()=>setRead(!readAloud);$("soundTop").onclick=()=>setSound(!sound);$("leftBtn").onclick=()=>move(-1);$("rightBtn").onclick=()=>move(1);
+$("exitBtn").onclick=()=>{if(timerId)clearInterval(timerId);show("home")};$("jumpBtn").onclick=jump;$("againBtn").onclick=begin;$("finishCoursesBtn").onclick=()=>show("home");$("speedOpt").onclick=()=>{speed=!speed;$("speedOpt").classList.toggle("on",speed);$("speedOpt").textContent="⏱ Speed run: "+(speed?"on":"off")};$("readOpt").onclick=()=>setRead(!readAloud);$("readTop").onclick=()=>setRead(!readAloud);$("soundTop").onclick=()=>setSound(!sound);$("leftBtn").onclick=()=>move(-1);$("rightBtn").onclick=()=>move(1);
 document.addEventListener("keydown",e=>{if(!$("game").classList.contains("active"))return;if(["ArrowLeft","ArrowRight"," "].includes(e.key))e.preventDefault();if(e.key==="ArrowLeft"||e.key.toLowerCase()==="a")move(-1);if(e.key==="ArrowRight"||e.key.toLowerCase()==="d")move(1);if(e.key===" ")jump()});
 setRead(false);setSound(true);
 </script>
