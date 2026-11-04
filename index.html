@@ -19,16 +19,16 @@ button{font:inherit;cursor:pointer}button:focus-visible{outline:4px solid #ffd45
 .slap-monkey svg{display:block;width:100%;height:auto;overflow:visible}
 .playfield.slapping .slap-monkey{animation:monkeyEnter .32s cubic-bezier(.2,.8,.25,1) forwards}
 .monkey-slap-arm{transform-box:view-box}
-.playfield.slapping .monkey-slap-arm{animation:monkeySlap .56s .2s ease-in-out both}
-.avatar.slapped{animation:manRecoil .7s .29s ease-out both;transform-origin:52% 58%}
+.playfield.slapping .monkey-slap-arm{animation:monkeySlap 1.05s .2s ease-in-out both}
+.avatar.slapped{animation:manRecoil .75s .66s ease-out both;transform-origin:52% 58%}
 .ouch-bubble{position:absolute;z-index:11;left:20%;top:23%;padding:7px 11px;border:2px solid #263455;border-radius:14px 14px 14px 3px;background:#fffdf8;color:#d74642;font-size:17px;font-weight:1000;letter-spacing:.04em;opacity:0;transform:scale(.4) rotate(-8deg);box-shadow:0 5px 12px #18354b33;pointer-events:none}
-.playfield.slapping .ouch-bubble{animation:ouchPop .8s .43s ease-out both}
+.playfield.slapping .ouch-bubble{animation:ouchPop 1.15s .38s ease-out both}
 .impact-burst{position:absolute;z-index:10;left:24%;top:37%;color:#ff782d;font-size:15px;font-weight:1000;letter-spacing:.04em;text-shadow:1px 2px #fff;opacity:0;transform:scale(.2) rotate(-18deg);pointer-events:none}
-.playfield.slapping .impact-burst{animation:impactPop .52s .38s ease-out both}
+.playfield.slapping .impact-burst{animation:impactPop .7s .63s ease-out both}
 @keyframes monkeyEnter{0%{opacity:0;transform:translateX(-115%) scale(.8)}72%{opacity:1;transform:translateX(7%) scale(1.05)}100%{opacity:1;transform:translateX(0) scale(1)}}
-@keyframes monkeySlap{0%,100%{transform:rotate(28deg)}42%{transform:rotate(-44deg)}58%{transform:rotate(-62deg)}78%{transform:rotate(14deg)}}
-@keyframes manRecoil{0%,30%,100%{transform:translateX(0) rotate(0)}42%{transform:translateX(8px) rotate(-13deg)}63%{transform:translateX(-2px) rotate(5deg)}78%{transform:translateX(2px) rotate(-2deg)}}
-@keyframes ouchPop{0%{opacity:0;transform:scale(.4) rotate(-8deg)}22%,78%{opacity:1;transform:scale(1.08) rotate(3deg)}38%{transform:scale(1) rotate(0)}100%{opacity:0;transform:scale(.9) translateY(-8px)}}
+@keyframes monkeySlap{0%,100%{transform:rotate(28deg)}32%{transform:rotate(-7deg)}48%,65%{transform:rotate(-32deg)}82%{transform:rotate(4deg)}}
+@keyframes manRecoil{0%,20%,100%{transform:translateX(0) rotate(0)}33%{transform:translateX(8px) rotate(-13deg)}58%{transform:translateX(-2px) rotate(5deg)}78%{transform:translateX(2px) rotate(-2deg)}}
+@keyframes ouchPop{0%{opacity:0;transform:scale(.4) rotate(-8deg)}15%,78%{opacity:1;transform:scale(1.08) rotate(3deg)}30%{transform:scale(1) rotate(0)}100%{opacity:0;transform:scale(.9) translateY(-8px)}}
 @keyframes impactPop{0%{opacity:0;transform:scale(.2) rotate(-18deg)}25%,72%{opacity:1;transform:scale(1.12) rotate(6deg)}100%{opacity:0;transform:scale(.7) rotate(0)}}
 @media(max-width:760px){.slap-monkey{left:5%;bottom:96px;width:clamp(88px,26vw,116px)}.ouch-bubble{left:25%;top:20%;font-size:14px}.impact-burst{left:29%;top:35%;font-size:12px}}
 </style>
@@ -66,7 +66,7 @@ button{font:inherit;cursor:pointer}button:focus-visible{outline:4px solid #ffd45
 </div></section>
 <section id="finish" class="screen"><div class="done"><div class="trophy">🏆</div><h2>Course complete!</h2><p id="finishText">You earned gems and practiced your words.</p><div class="done-actions"><button id="againBtn" class="primary">PLAY AGAIN&nbsp; ↻</button><button id="finishCoursesBtn" class="secondary">CHOOSE ANOTHER COURSE</button></div></div></section>
 </main>
-<footer class="footer">A little practice, one jump at a time · Your best score stays on this device</footer>
+<footer class="footer">A little practice, one question at a time · Your best score stays on this device</footer>
 </div>
 <script>
 const courses={
@@ -990,7 +990,7 @@ function begin(){let c=courses[selected];deck=shuffled(c.questions);index=0;scor
 function updateTimer(){let n=Math.floor((Date.now()-startedAt)/1000);$("timerBox").textContent="⏱ "+Math.floor(n/60)+":"+String(n%60).padStart(2,"0")}
 function renderQuestion(){let q=deck[index];unlocked=false;falling=false;jumping=false;$("questionCount").textContent=(roundNumber>1?`RETRY ROUND ${roundNumber} · `:"")+`QUESTION ${index+1} OF ${deck.length}`;$("progressFill").style.width=(clearedQuestions.size/totalQuestions*100)+"%";$("question").textContent=q.q;$("feedback").textContent="Choose carefully—right answers earn gems!";$("feedback").className="feedback";let av=$("avatar");av.classList.remove("walking","jumping","falling");av.style.transition="";av.style.bottom="100px";avatarX=16;av.style.left=avatarX+"%";$("hole").classList.remove("open","cleared");let gem=$("checkpoint");gem.classList.remove("collecting");gem.style.visibility="visible";gem.style.removeProperty("--fly-x");gem.style.removeProperty("--fly-y");positionHole();let opts=shuffled(q.choices);$("answers").innerHTML="";opts.forEach(text=>{let b=document.createElement("button");b.className="answer";b.textContent=text;b.addEventListener("click",()=>answer(b,text,q));$("answers").appendChild(b)});speak(q.q);}
 function answer(btn,text,q){if(unlocked||falling||jumping)return;if(text===q.a){unlocked=true;tone(830,.12);btn.classList.add("correct");$("feedback").textContent="Correct! The monkey gives him a slap—and you earn a gem!";$("feedback").className="feedback good";[...$("answers").children].forEach(b=>b.disabled=true);speak("Correct! "+q.a);setTimeout(slapMan,180)}else{falling=true;tone(220,.16);btn.classList.add("wrong");[...$("answers").children].forEach(b=>b.disabled=true);if(!retryQueued.has(q)){retryQueue.push(q);retryQueued.add(q)}$("feedback").textContent="You fell in! This question will come back in the retry round.";$("feedback").className="feedback bad";speak("That one will come back for another try.");fallIntoHole()}}
-function slapMan(){if(!unlocked||jumping||falling)return;jumping=true;let av=$("avatar"),scene=$("playfield"),q=deck[index];av.classList.remove("walking","jumping");scene.classList.add("slapping");av.classList.add("slapped");tone(190,.09);setTimeout(()=>tone(135,.12),230);setTimeout(shoutOuch,460);setTimeout(()=>collectDiamond(q),620);setTimeout(()=>{scene.classList.remove("slapping");av.classList.remove("slapped");advanceQuestion()},1120)}
+function slapMan(){if(!unlocked||jumping||falling)return;jumping=true;let av=$("avatar"),scene=$("playfield"),q=deck[index];av.classList.remove("walking","jumping");scene.classList.add("slapping");av.classList.add("slapped");tone(190,.09);setTimeout(()=>tone(135,.12),230);setTimeout(shoutOuch,700);setTimeout(()=>collectDiamond(q),830);setTimeout(()=>{scene.classList.remove("slapping");av.classList.remove("slapped");advanceQuestion()},1620)}
 function shoutOuch(){if(!("speechSynthesis"in window))return;try{speechSynthesis.cancel();let u=new SpeechSynthesisUtterance("Ouch!");u.rate=1.3;u.pitch=1.35;u.volume=sound?1:0;speechSynthesis.speak(u)}catch(e){}}
 function jump(){if(!unlocked||jumping||falling)return;jumping=true;let av=$("avatar"),hole=$("hole"),q=deck[index],holeLeft=parseFloat(hole.style.left)||38,landingX=Math.min(82,holeLeft+12);av.classList.remove("walking");av.style.transition="left .72s cubic-bezier(.2,.7,.2,1)";void av.offsetWidth;av.classList.add("jumping");av.style.left=landingX+"%";hole.classList.add("cleared");setTimeout(()=>collectDiamond(q),270);setTimeout(()=>{avatarX=landingX;hole.classList.remove("cleared");advanceQuestion()},780)}
 function positionHole(){let left=Math.max(36,Math.min(72,avatarX+21));$("hole").style.left=left+"%";$("checkpoint").style.left=(left+2.6)+"%"}
