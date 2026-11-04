@@ -22,13 +22,21 @@ button{font:inherit;cursor:pointer}button:focus-visible{outline:4px solid #ffd45
 
 <section id="home" class="screen active">
 <div class="course-wrap">
-<div style="color:var(--muted);margin-bottom:18px">Pick a word set to practice. Tap a course to start.</div>
+<div class="section-head"><div><span class="eyebrow" style="background:#eef1ff;color:#465bce;border-color:#dde4ff">WEEK OF NOVEMBER 2–6</span><h2 style="margin-top:12px">This Week’s Classroom</h2><p>Pick a mission. Get answers right to jump the gap and collect gems.</p></div></div>
 <div class="course-grid">
-<button class="course-card" data-course="geography"><div class="course-icon">🌎</div><h3>1.4 Geography</h3><p>Maps, landforms, and water words. Choose the word that matches the clue.</p></button>
+<button class="course-card" data-course="math"><div class="course-icon">🧮</div><h3>Math · Subtract to 100</h3><p>Practice subtraction, regrouping, and short word problems.</p></button>
+<button class="course-card" data-course="phonics"><div class="course-icon">🔤</div><h3>UFLI · Word Builder</h3><p>Practice ai, ay, ee, ea, ey, irregular words, and word chains.</p></button>
+<button class="course-card" data-course="reading"><div class="course-icon">📖</div><h3>Reading Detective</h3><p>Solve story, poem, nonfiction, and writing challenges.</p></button>
+<button class="course-card" data-course="energy"><div class="course-icon">⚡</div><h3>Science · Energy Explorer</h3><p>Learn energy, electricity, fuel, appliances, and energy sources.</p></button>
+<button class="course-card" data-course="environment"><div class="course-icon">🌱</div><h3>Social Studies · Eco Helper</h3><p>Practice natural resources, pollution, and caring for the environment.</p></button>
+</div>
+<div style="margin-top:28px;border-top:1px solid var(--line);padding-top:22px">
+<div class="section-head" style="margin-bottom:14px"><div><h2 style="font-size:23px">More Practice</h2><p>Keep playing the other word sets.</p></div></div>
+<div class="course-grid">
+<button class="course-card" data-course="geography"><div class="course-icon">🌎</div><h3>1.4 Geography</h3><p>Maps, landforms, and water words.</p></button>
 <button class="course-card" data-course="wolf"><div class="course-icon">🐺</div><h3>Wolf! Wolf! Context Clues</h3><p>Read each sentence and pick the word that makes the most sense.</p></button>
 <button class="course-card" data-course="poetry"><div class="course-icon">📚</div><h3>Unit 2 Poetry Words</h3><p>Practice behave, express, poem, rhyme, rhythm, and more.</p><span class="tag">Practice · not tested</span></button>
-<button class="course-card" data-course="energy"><div class="course-icon">⚡</div><h3>Unit 4 Energy</h3><p>Learn energy words for electricity, fuels, and renewable sources.</p></button>
-</div>
+</div></div>
 <div class="menu-bottom"><div class="menu-options"><button id="speedOpt" class="pill">⏱ Speed run: off</button><button id="readOpt" class="pill">🗣 Read aloud: off</button></div></div>
 </div>
 </section>
@@ -44,50 +52,910 @@ button{font:inherit;cursor:pointer}button:focus-visible{outline:4px solid #ffd45
 </div>
 <script>
 const courses={
- geography:{title:"1.4 Geography",sub:"Maps, landforms & water",tag:"GEOGRAPHY QUEST",icon:"🌎",questions:[
- {q:"Which word means the study of Earth's physical features and people?",a:"geography",choices:["geography","continent","physical map","valley"]},
- {q:"A body of water with land all around it is a…",a:"lake",choices:["lake","river","ocean","island"]},
- {q:"Which map shows countries, states, and cities?",a:"political map",choices:["political map","physical map","continent","geography"]},
- {q:"Land with water all around it is an…",a:"island",choices:["island","valley","plain","desert"]},
- {q:"Which word means a large area of flat land, often covered in grass?",a:"plain",choices:["plain","mountain","desert","continent"]},
- {q:"A body of freshwater that moves through land is a…",a:"river",choices:["river","lake","ocean","valley"]},
- {q:"Which word means one of the seven large bodies of land on Earth?",a:"continent",choices:["continent","country","island","plain"]},
- {q:"A low place between mountains is a…",a:"valley",choices:["valley","plain","desert","lake"]},
- {q:"Which map shows Earth's physical features?",a:"physical map",choices:["physical map","political map","geography","country"]},
- {q:"Land that is hot and dry is a…",a:"desert",choices:["desert","plain","valley","island"]},
- {q:"A place where many people live together under the same rules is a…",a:"country",choices:["country","continent","geography","physical map"]},
- {q:"Which is the largest body of water on Earth?",a:"ocean",choices:["ocean","river","lake","island"]},
- {q:"What is the tallest kind of land on Earth?",a:"mountain",choices:["mountain","plain","valley","desert"]}
- ]},
- wolf:{title:"Wolf! Wolf! Context Clues",sub:"Read the sentence clue",tag:"CONTEXT CLUE QUEST",icon:"🐺",questions:[
- {q:"We will eat a seafood ______ of salmon, crab, and shrimp.",a:"feast",choices:["feast","stories","lessons","snatch"]},
- {q:"“How many bedtime ______ will you read to me?” asked my younger brother.",a:"stories",choices:["stories","lessons","feast","believe"]},
- {q:"The bread baking in the oven smells ______!",a:"delicious",choices:["delicious","remarkable","fond","believe"]},
- {q:"It is impolite to ______ something out of a person's hands.",a:"snatch",choices:["snatch","feast","believe","stories"]},
- {q:"I am ______ of our new neighbors. I like them a lot.",a:"fond",choices:["fond","remarkable","delicious","lessons"]},
- {q:"Sam told me an incredible fact about sharks, and I ______ him.",a:"believe",choices:["believe","snatch","feast","stories"]},
- {q:"Isn't that sunset ______? The colors are wonderful.",a:"remarkable",choices:["remarkable","delicious","fond","lessons"]},
- {q:"This week, Mr. Allen will teach ______ about 3D shapes.",a:"lessons",choices:["lessons","stories","feast","believe"]}
- ]},
- poetry:{title:"Unit 2 Poetry Words",sub:"Practice set · not tested",tag:"POETRY WORD QUEST",icon:"📚",questions:[
- {q:"To act in a certain way means to…",a:"behave",choices:["behave","express","flap","rhyme"]},
- {q:"To say or show a thought or feeling is to…",a:"express",choices:["express","behave","rhythm","feathers"]},
- {q:"Moving up and down is…",a:"flapping",choices:["flapping","rhyme","poem","express"]},
- {q:"The soft, light covering of a bird is its…",a:"feathers",choices:["feathers","rhythm","poem","behave"]},
- {q:"A kind of writing that expresses feeling and imagination is a…",a:"poem",choices:["poem","rhyme","feathers","flapping"]},
- {q:"Words that have the same ending sounds…",a:"rhyme",choices:["rhyme","rhythm","express","behave"]},
- {q:"The repeating accents or beats in a poem are its…",a:"rhythm",choices:["rhythm","rhyme","feathers","poem"]}
- ]},
- energy:{title:"Unit 4 Energy",sub:"Energy, electricity & fuels",tag:"ENERGY QUEST",icon:"⚡",questions:[
- {q:"The ability to do work or cause change is…",a:"energy",choices:["energy","electricity","fuel","appliance"]},
- {q:"A kind of energy that moves through wires and can make light and heat is…",a:"electricity",choices:["electricity","energy","wind energy","gasoline"]},
- {q:"Energy from sunlight that can be changed into electricity using solar panels is…",a:"solar energy",choices:["solar energy","water energy","wind energy","fuel"]},
- {q:"Energy from moving water that can be changed into electricity is…",a:"water energy",choices:["water energy","solar energy","electricity","gasoline"]},
- {q:"A device that uses electricity is an…",a:"appliance",choices:["appliance","fuel","energy","turbine"]},
- {q:"Anything that is burned as a source of energy is…",a:"fuel",choices:["fuel","electricity","appliance","solar energy"]},
- {q:"Energy from moving air that can be changed into electricity using a turbine is…",a:"wind energy",choices:["wind energy","water energy","solar energy","gasoline"]},
- {q:"A liquid used for fuel to power cars and other engines is…",a:"gasoline",choices:["gasoline","fuel","electricity","energy"]}
- ]}
+  "math": {
+    "title": "Topic 5 · Subtract to 100",
+    "sub": "Subtract within 100",
+    "tag": "MATH MISSION",
+    "icon": "🧮",
+    "questions": [
+      {
+        "q": "64 − 21 = ?",
+        "a": "43",
+        "choices": [
+          "43",
+          "45",
+          "53",
+          "33"
+        ]
+      },
+      {
+        "q": "58 − 30 = ?",
+        "a": "28",
+        "choices": [
+          "28",
+          "38",
+          "18",
+          "32"
+        ]
+      },
+      {
+        "q": "72 − 48 = ?",
+        "a": "24",
+        "choices": [
+          "24",
+          "34",
+          "26",
+          "32"
+        ]
+      },
+      {
+        "q": "43 − 17 = ?",
+        "a": "26",
+        "choices": [
+          "26",
+          "36",
+          "24",
+          "34"
+        ]
+      },
+      {
+        "q": "80 − 36 = ?",
+        "a": "44",
+        "choices": [
+          "44",
+          "54",
+          "46",
+          "34"
+        ]
+      },
+      {
+        "q": "59 − 22 = ?",
+        "a": "37",
+        "choices": [
+          "37",
+          "27",
+          "47",
+          "39"
+        ]
+      },
+      {
+        "q": "92 − 57 = ?",
+        "a": "35",
+        "choices": [
+          "35",
+          "45",
+          "25",
+          "43"
+        ]
+      },
+      {
+        "q": "A book has 46 pages. Mia read 18. How many pages are left?",
+        "a": "28",
+        "choices": [
+          "28",
+          "38",
+          "32",
+          "64"
+        ]
+      },
+      {
+        "q": "Which number sentence matches: Start with 65 and take away 27?",
+        "a": "65 − 27",
+        "choices": [
+          "65 − 27",
+          "65 + 27",
+          "27 − 65",
+          "65 − 20"
+        ]
+      },
+      {
+        "q": "Which subtraction problem needs you to regroup?",
+        "a": "53 − 28",
+        "choices": [
+          "53 − 28",
+          "86 − 24",
+          "75 − 32",
+          "49 − 17"
+        ]
+      },
+      {
+        "q": "100 − 64 = ?",
+        "a": "36",
+        "choices": [
+          "36",
+          "46",
+          "44",
+          "34"
+        ]
+      },
+      {
+        "q": "72 − 39 = ?",
+        "a": "33",
+        "choices": [
+          "33",
+          "43",
+          "37",
+          "31"
+        ]
+      }
+    ]
+  },
+  "phonics": {
+    "title": "UFLI Lessons 84–85",
+    "sub": "Long-vowel teams & word chains",
+    "tag": "WORD BUILDER",
+    "icon": "🔤",
+    "questions": [
+      {
+        "q": "Which word has ai making the long-a sound?",
+        "a": "paint",
+        "choices": [
+          "paint",
+          "plant",
+          "pet",
+          "point"
+        ]
+      },
+      {
+        "q": "Which word has ay at the end?",
+        "a": "play",
+        "choices": [
+          "play",
+          "plain",
+          "plan",
+          "plum"
+        ]
+      },
+      {
+        "q": "Choose the word with the ai spelling.",
+        "a": "wait",
+        "choices": [
+          "wait",
+          "wet",
+          "white",
+          "what"
+        ]
+      },
+      {
+        "q": "Which word has ee making the long-e sound?",
+        "a": "sleep",
+        "choices": [
+          "sleep",
+          "slip",
+          "slap",
+          "slope"
+        ]
+      },
+      {
+        "q": "Which word has ea making the long-e sound?",
+        "a": "clean",
+        "choices": [
+          "clean",
+          "clan",
+          "clown",
+          "clap"
+        ]
+      },
+      {
+        "q": "Which word ends with ey?",
+        "a": "money",
+        "choices": [
+          "money",
+          "monkey",
+          "month",
+          "most"
+        ]
+      },
+      {
+        "q": "In the chain main → rain → pain → chain, what comes after rain?",
+        "a": "pain",
+        "choices": [
+          "pain",
+          "main",
+          "chain",
+          "train"
+        ]
+      },
+      {
+        "q": "In meet → beet → feet → sheet, change the first sound in beet to f. What word do you make?",
+        "a": "feet",
+        "choices": [
+          "feet",
+          "meet",
+          "sheet",
+          "seat"
+        ]
+      },
+      {
+        "q": "Which pair has the same long-a sound?",
+        "a": "day and tray",
+        "choices": [
+          "day and tray",
+          "day and did",
+          "tray and tree",
+          "say and seed"
+        ]
+      },
+      {
+        "q": "Which pair has the same long-e sound?",
+        "a": "seed and clean",
+        "choices": [
+          "seed and clean",
+          "seed and said",
+          "clean and clay",
+          "meet and mat"
+        ]
+      },
+      {
+        "q": "Which is an irregular word from Lesson 84?",
+        "a": "today",
+        "choices": [
+          "today",
+          "paint",
+          "wait",
+          "clay"
+        ]
+      },
+      {
+        "q": "Which is an irregular word from Lesson 85?",
+        "a": "among",
+        "choices": [
+          "among",
+          "sleep",
+          "clean",
+          "money"
+        ]
+      }
+    ]
+  },
+  "reading": {
+    "title": "Unit 2 · Reading Detective",
+    "sub": "Stories, poems & nonfiction",
+    "tag": "READING QUEST",
+    "icon": "📖",
+    "questions": [
+      {
+        "q": "Story: Ben finds a lost puppy, gives it water, then finds its family. What happens first?",
+        "a": "Ben finds the puppy",
+        "choices": [
+          "Ben finds the puppy",
+          "The puppy goes home",
+          "Ben gives it water",
+          "The family says thank you"
+        ]
+      },
+      {
+        "q": "A story shows a girl practicing every day until she learns to ride a bike. What is a likely theme?",
+        "a": "Keep trying when something is hard",
+        "choices": [
+          "Keep trying when something is hard",
+          "Bikes are always red",
+          "Never ask for help",
+          "Rain comes at night"
+        ]
+      },
+      {
+        "q": "Story: Leo thinks the thunder is scary. His sister thinks it is exciting. What is different?",
+        "a": "Their points of view",
+        "choices": [
+          "Their points of view",
+          "The setting",
+          "The title",
+          "The ending"
+        ]
+      },
+      {
+        "q": "Which pair of words rhymes?",
+        "a": "light and night",
+        "choices": [
+          "light and night",
+          "light and late",
+          "night and net",
+          "rain and run"
+        ]
+      },
+      {
+        "q": "A heading says “How Bees Help Flowers.” What does the heading tell you?",
+        "a": "What that part is mostly about",
+        "choices": [
+          "What that part is mostly about",
+          "Who wrote the book",
+          "How many pages are left",
+          "The story's ending"
+        ]
+      },
+      {
+        "q": "Text: “Sea turtles lay eggs on sandy beaches. When the eggs hatch, the babies crawl toward the sea.” What is the central idea?",
+        "a": "Sea turtles hatch on beaches and head to the sea",
+        "choices": [
+          "Sea turtles hatch on beaches and head to the sea",
+          "All beaches have turtles",
+          "Turtles live only in sand",
+          "Baby turtles fly to the sea"
+        ]
+      },
+      {
+        "q": "An article lists facts about how to care for a garden. What is the author's purpose?",
+        "a": "To teach or inform",
+        "choices": [
+          "To teach or inform",
+          "To tell a joke",
+          "To make up a fairy tale",
+          "To describe a character"
+        ]
+      },
+      {
+        "q": "“The puppy was as soft as a cloud.” What kind of language is this?",
+        "a": "A simile",
+        "choices": [
+          "A simile",
+          "An idiom",
+          "Alliteration",
+          "A heading"
+        ]
+      },
+      {
+        "q": "“I have butterflies in my stomach” means the person feels nervous. This is an…",
+        "a": "idiom",
+        "choices": [
+          "idiom",
+          "rhyme",
+          "fact",
+          "caption"
+        ]
+      },
+      {
+        "q": "“Silly snakes slide slowly” repeats the beginning s sound. This is…",
+        "a": "alliteration",
+        "choices": [
+          "alliteration",
+          "a simile",
+          "a map",
+          "a conclusion"
+        ]
+      },
+      {
+        "q": "What is the best way to retell a story?",
+        "a": "Tell the important events in order",
+        "choices": [
+          "Tell the important events in order",
+          "Copy every sentence",
+          "Name only the characters",
+          "Tell a different ending"
+        ]
+      },
+      {
+        "q": "Text A says solar panels use sunlight. Text B says wind turbines use moving air. What is one difference?",
+        "a": "They use different natural sources",
+        "choices": [
+          "They use different natural sources",
+          "Both use gasoline",
+          "Neither can make electricity",
+          "Both use moving water"
+        ]
+      },
+      {
+        "q": "When writing an information paragraph, what should usually come first?",
+        "a": "An introduction that tells the topic",
+        "choices": [
+          "An introduction that tells the topic",
+          "A list of unrelated ideas",
+          "A conclusion before the topic",
+          "A joke with no facts"
+        ]
+      },
+      {
+        "q": "Which sentence is written correctly?",
+        "a": "The bird sings in the tree.",
+        "choices": [
+          "The bird sings in the tree.",
+          "the bird sings in the tree",
+          "The bird sing in the tree.",
+          "The bird sings in the tree"
+        ]
+      }
+    ]
+  },
+  "energy": {
+    "title": "Unit 4 · Energy Explorer",
+    "sub": "Energy words & sources",
+    "tag": "SCIENCE QUEST",
+    "icon": "⚡",
+    "questions": [
+      {
+        "q": "The ability to do work or cause change is…",
+        "a": "energy",
+        "choices": [
+          "energy",
+          "electricity",
+          "fuel",
+          "appliance"
+        ]
+      },
+      {
+        "q": "A kind of energy that moves through wires and can make light and heat is…",
+        "a": "electricity",
+        "choices": [
+          "electricity",
+          "energy",
+          "wind energy",
+          "gasoline"
+        ]
+      },
+      {
+        "q": "Energy from sunlight changed into electricity with solar panels is…",
+        "a": "solar energy",
+        "choices": [
+          "solar energy",
+          "water energy",
+          "wind energy",
+          "fuel"
+        ]
+      },
+      {
+        "q": "Energy from moving water that can be changed into electricity is…",
+        "a": "water energy",
+        "choices": [
+          "water energy",
+          "solar energy",
+          "electricity",
+          "gasoline"
+        ]
+      },
+      {
+        "q": "A device that uses electricity is an…",
+        "a": "appliance",
+        "choices": [
+          "appliance",
+          "fuel",
+          "energy",
+          "turbine"
+        ]
+      },
+      {
+        "q": "Anything that is burned as a source of energy is…",
+        "a": "fuel",
+        "choices": [
+          "fuel",
+          "electricity",
+          "appliance",
+          "solar energy"
+        ]
+      },
+      {
+        "q": "Energy from moving air that can make electricity with a turbine is…",
+        "a": "wind energy",
+        "choices": [
+          "wind energy",
+          "water energy",
+          "solar energy",
+          "gasoline"
+        ]
+      },
+      {
+        "q": "A liquid fuel that powers cars and other engines is…",
+        "a": "gasoline",
+        "choices": [
+          "gasoline",
+          "electricity",
+          "energy",
+          "appliance"
+        ]
+      }
+    ]
+  },
+  "environment": {
+    "title": "Social Studies · Eco Helper",
+    "sub": "Resources, pollution & conservation",
+    "tag": "ECO QUEST",
+    "icon": "🌱",
+    "questions": [
+      {
+        "q": "The land, water, and air around us are part of our…",
+        "a": "environment",
+        "choices": [
+          "environment",
+          "appliance",
+          "energy",
+          "shelter"
+        ]
+      },
+      {
+        "q": "To protect the environment from harm is to…",
+        "a": "conserve",
+        "choices": [
+          "conserve",
+          "pollute",
+          "burn",
+          "waste"
+        ]
+      },
+      {
+        "q": "Things in nature that people use are…",
+        "a": "natural resources",
+        "choices": [
+          "natural resources",
+          "appliances",
+          "pollution",
+          "electricity"
+        ]
+      },
+      {
+        "q": "To hurt the environment is to…",
+        "a": "pollute",
+        "choices": [
+          "pollute",
+          "conserve",
+          "recycle",
+          "protect"
+        ]
+      },
+      {
+        "q": "Smoke from a fire can pollute the…",
+        "a": "air",
+        "choices": [
+          "air",
+          "soil only",
+          "sunlight",
+          "rocks"
+        ]
+      },
+      {
+        "q": "People can make shelter from wood and…",
+        "a": "stones",
+        "choices": [
+          "stones",
+          "gasoline",
+          "smoke",
+          "electricity"
+        ]
+      },
+      {
+        "q": "Wool blankets are made from a sheep's…",
+        "a": "hair",
+        "choices": [
+          "hair",
+          "beak",
+          "shell",
+          "leaves"
+        ]
+      },
+      {
+        "q": "Corn comes from a…",
+        "a": "plant",
+        "choices": [
+          "plant",
+          "rock",
+          "cloud",
+          "machine"
+        ]
+      },
+      {
+        "q": "Water pollution can hurt which animals the most in the worksheet example?",
+        "a": "fish",
+        "choices": [
+          "fish",
+          "eagles",
+          "rabbits",
+          "horses"
+        ]
+      },
+      {
+        "q": "Which action helps keep the environment clean?",
+        "a": "Put litter in a trash or recycling bin",
+        "choices": [
+          "Put litter in a trash or recycling bin",
+          "Throw wrappers in a stream",
+          "Leave lights on all day",
+          "Pour oil on the ground"
+        ]
+      }
+    ]
+  },
+  "geography": {
+    "title": "1.4 Geography",
+    "sub": "Maps, landforms & water",
+    "tag": "GEOGRAPHY QUEST",
+    "icon": "🌎",
+    "questions": [
+      {
+        "q": "Which word means the study of Earth's physical features and people?",
+        "a": "geography",
+        "choices": [
+          "geography",
+          "continent",
+          "physical map",
+          "valley"
+        ]
+      },
+      {
+        "q": "A body of water with land all around it is a…",
+        "a": "lake",
+        "choices": [
+          "lake",
+          "river",
+          "ocean",
+          "island"
+        ]
+      },
+      {
+        "q": "Which map shows countries, states, and cities?",
+        "a": "political map",
+        "choices": [
+          "political map",
+          "physical map",
+          "continent",
+          "geography"
+        ]
+      },
+      {
+        "q": "Land with water all around it is an…",
+        "a": "island",
+        "choices": [
+          "island",
+          "valley",
+          "plain",
+          "desert"
+        ]
+      },
+      {
+        "q": "Which word means a large area of flat land, often covered in grass?",
+        "a": "plain",
+        "choices": [
+          "plain",
+          "mountain",
+          "desert",
+          "continent"
+        ]
+      },
+      {
+        "q": "A body of freshwater that moves through land is a…",
+        "a": "river",
+        "choices": [
+          "river",
+          "lake",
+          "ocean",
+          "valley"
+        ]
+      },
+      {
+        "q": "Which word means one of the seven large bodies of land on Earth?",
+        "a": "continent",
+        "choices": [
+          "continent",
+          "country",
+          "island",
+          "plain"
+        ]
+      },
+      {
+        "q": "A low place between mountains is a…",
+        "a": "valley",
+        "choices": [
+          "valley",
+          "plain",
+          "desert",
+          "lake"
+        ]
+      },
+      {
+        "q": "Which map shows Earth's physical features?",
+        "a": "physical map",
+        "choices": [
+          "physical map",
+          "political map",
+          "geography",
+          "country"
+        ]
+      },
+      {
+        "q": "Land that is hot and dry is a…",
+        "a": "desert",
+        "choices": [
+          "desert",
+          "plain",
+          "valley",
+          "island"
+        ]
+      },
+      {
+        "q": "A place where many people live together under the same rules is a…",
+        "a": "country",
+        "choices": [
+          "country",
+          "continent",
+          "geography",
+          "physical map"
+        ]
+      },
+      {
+        "q": "Which is the largest body of water on Earth?",
+        "a": "ocean",
+        "choices": [
+          "ocean",
+          "river",
+          "lake",
+          "island"
+        ]
+      },
+      {
+        "q": "What is the tallest kind of land on Earth?",
+        "a": "mountain",
+        "choices": [
+          "mountain",
+          "plain",
+          "valley",
+          "desert"
+        ]
+      }
+    ]
+  },
+  "wolf": {
+    "title": "Wolf! Wolf! Context Clues",
+    "sub": "Read the sentence clue",
+    "tag": "CONTEXT CLUE QUEST",
+    "icon": "🐺",
+    "questions": [
+      {
+        "q": "We will eat a seafood ______ of salmon, crab, and shrimp.",
+        "a": "feast",
+        "choices": [
+          "feast",
+          "stories",
+          "lessons",
+          "snatch"
+        ]
+      },
+      {
+        "q": "“How many bedtime ______ will you read to me?” asked my younger brother.",
+        "a": "stories",
+        "choices": [
+          "stories",
+          "lessons",
+          "feast",
+          "believe"
+        ]
+      },
+      {
+        "q": "The bread baking in the oven smells ______!",
+        "a": "delicious",
+        "choices": [
+          "delicious",
+          "remarkable",
+          "fond",
+          "believe"
+        ]
+      },
+      {
+        "q": "It is impolite to ______ something out of a person's hands.",
+        "a": "snatch",
+        "choices": [
+          "snatch",
+          "feast",
+          "believe",
+          "stories"
+        ]
+      },
+      {
+        "q": "I am ______ of our new neighbors. I like them a lot.",
+        "a": "fond",
+        "choices": [
+          "fond",
+          "remarkable",
+          "delicious",
+          "lessons"
+        ]
+      },
+      {
+        "q": "Sam told me an incredible fact about sharks, and I ______ him.",
+        "a": "believe",
+        "choices": [
+          "believe",
+          "snatch",
+          "feast",
+          "stories"
+        ]
+      },
+      {
+        "q": "Isn't that sunset ______? The colors are wonderful.",
+        "a": "remarkable",
+        "choices": [
+          "remarkable",
+          "delicious",
+          "fond",
+          "lessons"
+        ]
+      },
+      {
+        "q": "This week, Mr. Allen will teach ______ about 3D shapes.",
+        "a": "lessons",
+        "choices": [
+          "lessons",
+          "stories",
+          "feast",
+          "believe"
+        ]
+      }
+    ]
+  },
+  "poetry": {
+    "title": "Unit 2 Poetry Words",
+    "sub": "Practice set · not tested",
+    "tag": "POETRY WORD QUEST",
+    "icon": "📚",
+    "questions": [
+      {
+        "q": "To act in a certain way means to…",
+        "a": "behave",
+        "choices": [
+          "behave",
+          "express",
+          "flap",
+          "rhyme"
+        ]
+      },
+      {
+        "q": "To say or show a thought or feeling is to…",
+        "a": "express",
+        "choices": [
+          "express",
+          "behave",
+          "rhythm",
+          "feathers"
+        ]
+      },
+      {
+        "q": "Moving up and down is…",
+        "a": "flapping",
+        "choices": [
+          "flapping",
+          "rhyme",
+          "poem",
+          "express"
+        ]
+      },
+      {
+        "q": "The soft, light covering of a bird is its…",
+        "a": "feathers",
+        "choices": [
+          "feathers",
+          "rhythm",
+          "poem",
+          "behave"
+        ]
+      },
+      {
+        "q": "A kind of writing that expresses feeling and imagination is a…",
+        "a": "poem",
+        "choices": [
+          "poem",
+          "rhyme",
+          "feathers",
+          "flapping"
+        ]
+      },
+      {
+        "q": "Words that have the same ending sounds…",
+        "a": "rhyme",
+        "choices": [
+          "rhyme",
+          "rhythm",
+          "express",
+          "behave"
+        ]
+      },
+      {
+        "q": "The repeating accents or beats in a poem are its…",
+        "a": "rhythm",
+        "choices": [
+          "rhythm",
+          "rhyme",
+          "feathers",
+          "poem"
+        ]
+      }
+    ]
+  }
 };
 let selected="geography",speed=false,readAloud=false,sound=true,audioCtx=null,deck=[],index=0,score=0,unlocked=false,startedAt=0,timerId=null,avatarX=16,walkTimer=null,retryQueue=[],retryQueued=new Set(),clearedQuestions=new Set(),roundNumber=1,totalQuestions=0,falling=false,jumping=false;
 const $=id=>document.getElementById(id);const screens=["home","game","finish"];
