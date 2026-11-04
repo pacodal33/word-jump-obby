@@ -11,7 +11,7 @@ A single-file, mobile-friendly vocabulary game inspired by the shared Roblox-sty
 
 ## Play
 
-Open `index.html` in a browser. On a computer, move with **← / →** or **A / D**. A correct answer triggers the monkey's quick slap, the man's “Ouch!”, and a gem. Get two answers right in a row to see a brief **LEVEL UP!** celebration; each additional pair celebrates again. A wrong answer resets the streak and sends that question to the retry round. On a phone or tablet, use the on-screen movement buttons. Use the sound toggle to turn game effects on or off.
+Open `index.html` in a browser. On a computer, move with **← / →** or **A / D**. A correct answer triggers the monkey's quick slap, the man's “Ouch!”, and a gem. Get two answers right in a row to see a brief **LEVEL UP!** celebration; each additional pair celebrates again. A wrong answer resets the streak and sends that question to the retry round. The level-up is visual only; it does not change the score or difficulty. Slap and celebration effects stay brief (about two seconds or less). On a phone or tablet, use the on-screen movement buttons. Use the sound toggle to turn game effects on or off.
 
 ## Publish with GitHub Pages
 
