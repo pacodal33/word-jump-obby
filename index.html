@@ -26,8 +26,8 @@ button{font:inherit;cursor:pointer}button:focus-visible{outline:4px solid #ffd45
 .impact-burst{position:absolute;z-index:10;left:24%;top:37%;color:#ff782d;font-size:15px;font-weight:1000;letter-spacing:.04em;text-shadow:1px 2px #fff;opacity:0;transform:scale(.2) rotate(-18deg);pointer-events:none}
 .playfield.slapping .impact-burst{animation:impactPop .7s .63s ease-out both}
 @keyframes monkeyEnter{0%{opacity:0;transform:translateX(-115%) scale(.8)}72%{opacity:1;transform:translateX(7%) scale(1.05)}100%{opacity:1;transform:translateX(0) scale(1)}}
-@keyframes monkeySlap{0%{transform:rotate(28deg)}32%{transform:rotate(-7deg)}48%,70%{transform:rotate(-32deg)}84%{transform:rotate(-24deg)}100%{transform:rotate(-24deg)}}
-@keyframes manRecoil{0%,20%{transform:translateX(0) rotate(0)}33%{transform:translateX(8px) rotate(-13deg)}58%{transform:translateX(-2px) rotate(5deg)}78%,100%{transform:translateX(4px) rotate(-8deg)}}
+@keyframes monkeySlap{0%{transform:rotate(28deg)}32%{transform:rotate(-7deg)}48%,70%{transform:rotate(-52deg)}84%{transform:rotate(-45deg)}100%{transform:rotate(-45deg)}}
+@keyframes manRecoil{0%,20%{transform:translateX(0) rotate(0)}33%{transform:translateX(8px) rotate(-13deg)}58%{transform:translateX(-2px) rotate(5deg)}78%,100%{transform:translateX(7px) rotate(-13deg)}}
 @keyframes ouchPop{0%{opacity:0;transform:scale(.4) rotate(-8deg)}15%,78%{opacity:1;transform:scale(1.08) rotate(3deg)}30%{transform:scale(1) rotate(0)}100%{opacity:0;transform:scale(.9) translateY(-8px)}}
 @keyframes impactPop{0%{opacity:0;transform:scale(.2) rotate(-18deg)}25%,72%{opacity:1;transform:scale(1.12) rotate(6deg)}100%{opacity:0;transform:scale(.7) rotate(0)}}
 @media(max-width:760px){.slap-monkey{left:5%;bottom:96px;width:clamp(88px,26vw,116px)}.ouch-bubble{left:25%;top:20%;font-size:14px}.impact-burst{left:29%;top:35%;font-size:12px}}
