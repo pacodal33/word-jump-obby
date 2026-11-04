@@ -11,7 +11,7 @@ A single-file, mobile-friendly vocabulary game inspired by the shared Roblox-sty
 
 ## Play
 
-Open `index.html` in a browser. On a computer, move with **← / →** or **A / D** and jump with **Space** after answering correctly. On a phone or tablet, use the on-screen buttons.
+Open `index.html` in a browser. On a computer, move with **← / →** or **A / D**. A correct answer triggers the monkey slap, “Ouch!” reaction, and a gem. On a phone or tablet, use the on-screen movement buttons.
 
 ## Publish with GitHub Pages
 
