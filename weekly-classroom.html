@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#edf6ff">
+<title>Daniel's Daily Learning</title>
+<style>
+:root{--ink:#17324d;--muted:#62778b;--paper:#fff;--bg:#edf6ff;--blue:#2979ff;--green:#2aa65a;--orange:#ef8b17;--purple:#8a52d6;--red:#df4c46;--teal:#159b91;--gold:#c69b00;--slate:#52667a;--shadow:0 20px 55px #24405c20}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:ui-rounded,"Trebuchet MS",system-ui,-apple-system,sans-serif;color:var(--ink);background:radial-gradient(circle at 10% 5%,#dcecff,transparent 30%),radial-gradient(circle at 90% 95%,#fff0cf,transparent 34%),var(--bg)}
+button{font:inherit}.app{width:min(1120px,100%);margin:auto;padding:24px 18px 44px}.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:16px}.brand{font-weight:950;font-size:17px;display:flex;align-items:center;gap:10px}.brand-mark{width:42px;height:42px;display:grid;place-items:center;border-radius:15px;background:linear-gradient(135deg,#ffd76a,#ff9e57);box-shadow:0 9px 22px #db9b3544}.top-actions{display:flex;gap:8px}.small-btn{border:1px solid #dce5ee;border-radius:13px;background:#fff;padding:10px 13px;color:var(--ink);font-weight:850;cursor:pointer}.hero{background:#fff;border-radius:32px;padding:clamp(24px,5vw,52px);box-shadow:var(--shadow);overflow:hidden;position:relative}.hero:after{content:"⚡";position:absolute;right:4%;top:7%;font-size:clamp(70px,13vw,150px);opacity:.08;transform:rotate(10deg)}.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.13em;font-weight:950;color:#567086}.hero h1{font-size:clamp(40px,7vw,72px);line-height:.95;letter-spacing:-.05em;margin:12px 0 13px;max-width:760px}.hero h1 span{color:var(--blue)}.hero p{font-size:clamp(16px,2vw,20px);line-height:1.5;color:var(--muted);max-width:720px;margin:0}.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}.primary{border:0;border-radius:15px;background:linear-gradient(135deg,#2979ff,#645cff);color:#fff;padding:15px 20px;font-weight:950;cursor:pointer;box-shadow:0 10px 24px #395eef42}.secondary{border:2px solid #e3eaf1;border-radius:15px;background:#fff;color:var(--ink);padding:13px 18px;font-weight:900;cursor:pointer}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}.stat{background:#ffffffbd;border:1px solid #fff;border-radius:18px;padding:14px 16px;box-shadow:0 8px 24px #24405c10}.stat small{display:block;color:var(--muted);font-weight:850;font-size:11px;text-transform:uppercase;letter-spacing:.08em}.stat strong{font-size:24px;display:block;margin-top:2px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:14px;margin:28px 2px 13px}.section-head h2{margin:0;font-size:29px;letter-spacing:-.03em}.section-head p{margin:4px 0 0;color:var(--muted)}.progress-wrap{background:#fff;border-radius:999px;height:13px;overflow:hidden;box-shadow:inset 0 0 0 1px #dae4ed}.progress{height:100%;width:0;background:linear-gradient(90deg,#29b97d,#68d9a9);transition:width .35s}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:16px}.card{--accent:var(--blue);--tint:#e7f1ff;border:0;background:var(--tint);border-radius:24px;padding:20px;text-align:left;position:relative;min-height:175px;cursor:pointer;color:var(--ink);transition:transform .17s,box-shadow .17s}.card:hover{transform:translateY(-3px);box-shadow:0 14px 30px #24405c18}.card:focus-visible{outline:4px solid var(--accent);outline-offset:3px}.card.done:after{content:"✓";position:absolute;right:16px;top:15px;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#23a763;color:white;font-weight:950}.card .minutes{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:#fff;font-weight:950;font-size:20px}.card h3{margin:13px 0 5px;font-size:25px;letter-spacing:-.02em}.card p{margin:0;color:#38536b;font-size:14px;line-height:1.4}.card .go{display:inline-block;margin-top:13px;font-size:12px;font-weight:950;text-transform:uppercase;letter-spacing:.06em;color:var(--accent)}.reading{--accent:var(--green);--tint:#eaf9ef}.vocab{--accent:var(--orange);--tint:#fff2dd}.literature{--accent:var(--purple);--tint:#f3ebff}.math{--accent:var(--red);--tint:#ffe9e8}.science{--accent:var(--teal);--tint:#e7f8f7}.social{--accent:var(--gold);--tint:#fff8cf}.lightning{--accent:var(--slate);--tint:#e9edf3;grid-column:1/-1;min-height:150px}.lightning.locked{filter:grayscale(.4);opacity:.72}.lightning .bolt{position:absolute;right:6%;bottom:5%;font-size:86px;opacity:.12}.screen{display:none}.screen.active{display:block}.quiz{background:#fff;border-radius:30px;box-shadow:var(--shadow);overflow:hidden}.quiz-top{padding:22px clamp(20px,4vw,38px);color:#fff;background:linear-gradient(135deg,var(--accent,#2979ff),color-mix(in srgb,var(--accent,#2979ff),#101a39 26%));position:relative}.quiz-top .crumb{font-size:12px;text-transform:uppercase;letter-spacing:.12em;font-weight:950;opacity:.85}.quiz-top h2{font-size:clamp(28px,5vw,46px);margin:8px 0 2px;letter-spacing:-.04em}.quiz-top p{margin:0;opacity:.9}.quiz-hud{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.chip{background:#ffffff20;border:1px solid #ffffff35;border-radius:999px;padding:7px 10px;font-size:12px;font-weight:900}.timer-line{height:8px;background:#edf1f5}.timer-fill{height:100%;width:100%;background:#ffd65e;transition:width 1s linear}.quiz-body{padding:clamp(22px,5vw,48px)}.question{font-size:clamp(23px,4vw,36px);font-weight:950;line-height:1.18;letter-spacing:-.025em;margin:0 0 22px}.answers{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.answer{border:2px solid #e3eaf1;border-radius:17px;background:#fff;padding:17px 15px;color:var(--ink);font-weight:900;cursor:pointer;min-height:64px;transition:.13s}.answer:hover{border-color:var(--accent,#2979ff);transform:translateY(-1px)}.answer.correct{border-color:#22a767;background:#e9faef;color:#17683d}.answer.wrong{border-color:#df4c46;background:#fff0ef;color:#92312d}.answer:disabled{cursor:default}.feedback{min-height:56px;margin-top:16px;padding:13px 15px;border-radius:15px;background:#f4f7fa;color:var(--muted);font-weight:850;line-height:1.35}.feedback.good{background:#e9faef;color:#17683d}.feedback.bad{background:#fff0ef;color:#92312d}.quiz-actions{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:16px}.back{border:0;background:transparent;color:var(--muted);font-weight:900;cursor:pointer;padding:11px 0}.next{border:0;border-radius:14px;background:var(--accent,#2979ff);color:white;font-weight:950;padding:13px 20px;cursor:pointer;display:none}.next.show{display:block}.celebrate{position:fixed;inset:0;display:none;place-items:center;background:#10213bcc;z-index:20;padding:18px}.celebrate.show{display:grid}.celebrate-card{width:min(540px,100%);background:#fff;border-radius:30px;text-align:center;padding:36px 24px;box-shadow:0 25px 80px #0005}.celebrate .emoji{font-size:72px}.celebrate h2{font-size:38px;letter-spacing:-.04em;margin:8px 0}.celebrate p{color:var(--muted);font-size:17px;line-height:1.5}.confetti{position:fixed;pointer-events:none;font-size:24px;animation:pop .8s ease-out forwards;z-index:30}@keyframes pop{to{transform:translate(var(--x),var(--y)) rotate(280deg);opacity:0}}@media(max-width:680px){.app{padding:14px 12px 32px}.top{margin-bottom:10px}.brand span:last-child{display:none}.hero{border-radius:25px}.stats{grid-template-columns:1fr 1fr}.stat:last-child{grid-column:1/-1}.grid{grid-template-columns:1fr}.lightning{grid-column:auto}.answers{grid-template-columns:1fr}.quiz{border-radius:24px}.quiz-body{padding:22px 17px}.answer{min-height:58px}.section-head{align-items:flex-start;flex-direction:column}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<main class="app">
+  <div class="top">
+    <div class="brand"><span class="brand-mark">🎓</span><span>Weekly Classroom</span></div>
+    <div class="top-actions"><button class="small-btn" id="soundBtn">🔊 Sound</button><button class="small-btn" id="resetBtn">↻ Reset</button></div>
+  </div>
+
+  <section id="home" class="screen active">
+    <div class="hero">
+      <div class="eyebrow">Daniel's learning mission</div>
+      <h1>A little of <span>every subject.</span></h1>
+      <p>Finish the seven subject missions, build your streak, and unlock the Lightning Round.</p>
+      <div class="hero-actions"><button class="primary" id="startBtn">Start Daily Challenge</button><button class="secondary" id="quickBtn">Jump to Lightning ⚡</button></div>
+    </div>
+    <div class="stats">
+      <div class="stat"><small>Subjects complete</small><strong id="completeStat">0 / 7</strong></div>
+      <div class="stat"><small>Correct answers</small><strong id="scoreStat">0</strong></div>
+      <div class="stat"><small>Best streak</small><strong id="streakStat">0 🔥</strong></div>
+    </div>
+    <div class="section-head"><div><h2>Today's learning path</h2><p>Numbers in circles are suggested minutes.</p></div></div>
+    <div class="progress-wrap"><div class="progress" id="dailyProgress"></div></div>
+    <div class="grid" id="subjectGrid"></div>
+  </section>
+
+  <section id="quizScreen" class="screen">
+    <div class="quiz" id="quizCard">
+      <div class="quiz-top">
+        <div class="crumb" id="quizCrumb">Daily mission</div>
+        <h2 id="quizTitle">Phonics</h2><p id="quizSub">Long-vowel teams</p>
+        <div class="quiz-hud"><span class="chip" id="questionCount">1 of 3</span><span class="chip" id="quizScore">⭐ 0</span><span class="chip" id="quizStreak">🔥 0</span></div>
+      </div>
+      <div class="timer-line"><div class="timer-fill" id="timerFill"></div></div>
+      <div class="quiz-body">
+        <p class="question" id="question"></p>
+        <div class="answers" id="answers"></div>
+        <div class="feedback" id="feedback">Choose the best answer.</div>
+        <div class="quiz-actions"><button class="back" id="backBtn">← Learning path</button><button class="next" id="nextBtn">Next →</button></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="celebrate" id="celebrate">
+  <div class="celebrate-card"><div class="emoji" id="celebrateEmoji">🏆</div><h2 id="celebrateTitle">Mission complete!</h2><p id="celebrateText"></p><button class="primary" id="celebrateBtn">Keep going</button></div>
+</div>
+
+<script>
+const subjects={
+ phonics:{title:"Phonics",minutes:5,sub:"Long O and long I teams",detail:"Long O: oa, ow, oe • Long I: ie, igh",cls:"",color:"#2979ff",icon:"🔤",questions:[
+  {q:"Which letters make the long O sound in snow?",a:"ow",c:["ow","oa","oe","igh"],why:"Snow ends with OW, which spells the long O sound."},
+  {q:"Which spelling completes the word: b__t?",a:"oa",c:["oa","ow","oe","ie"],why:"Boat uses OA in the middle."},
+  {q:"Which letters make the long I sound in night?",a:"igh",c:["igh","ie","oa","ow"],why:"Night uses IGH for the long I sound."},
+  {q:"Which word ends with IE?",a:"pie",c:["pie","bright","snow","road"],why:"Pie ends with IE."},
+  {q:"Which is spelled correctly?",a:"against",c:["against","agenst","aginst","agains"],why:"Against is an irregular word to remember."}]},
+ reading:{title:"Reading",minutes:5,sub:"Read and understand",detail:"Read aloud • Answer 1 question",cls:"reading",color:"#2aa65a",icon:"📖",questions:[
+  {q:"Maya borrowed a book and promised to return it Friday. What did Maya borrow?",a:"A book",c:["A book","A pencil","A coat","A boat"],why:"The passage says Maya borrowed a book."},
+  {q:"The goat crossed the road to reach the green field. Why did it cross?",a:"To reach the field",c:["To reach the field","To find snow","To see a show","To go home"],why:"The goat crossed to reach the green field."},
+  {q:"Ben felt lonely, so he asked a friend to play. What solved Ben's problem?",a:"Playing with a friend",c:["Playing with a friend","Going to sleep","Finding a magnet","Doing subtraction"],why:"His friend helped him no longer feel alone."}]},
+ vocab:{title:"Vocabulary",minutes:5,sub:"Words and meanings",detail:"Review 3 words • Use each in a sentence",cls:"vocab",color:"#ef8b17",icon:"🧠",questions:[
+  {q:"What does borrow mean?",a:"Take and return later",c:["Take and return later","Keep forever","Give away","Walk across"],why:"When you borrow something, you take it and return it later."},
+  {q:"What is a solution?",a:"The answer to a problem",c:["The answer to a problem","A group of houses","A lonely feeling","A demand"],why:"A solution answers or fixes a problem."},
+  {q:"What does countryside mean?",a:"Land outside cities and towns",c:["Land outside cities and towns","The middle of a city","A school playground","One side of a road"],why:"The countryside is land away from cities and towns."},
+  {q:"If someone insists, that person…",a:"Demands something",c:["Demands something","Borrows something","Feels alone","Crosses a road"],why:"Insists means demands or strongly says something must happen."}]},
+ literature:{title:"Literature",minutes:5,sub:"Poetry and figurative language",detail:"Simile • Idiom • Rhyme • Alliteration",cls:"literature",color:"#8a52d6",icon:"✍️",questions:[
+  {q:"Her smile was as bright as the sun. What is it?",a:"Simile",c:["Simile","Idiom","Alliteration","Rhyme"],why:"A simile compares two things using like or as."},
+  {q:"It's raining cats and dogs. What is it?",a:"Idiom",c:["Idiom","Simile","Rhyme","Fact"],why:"An idiom means something different from its exact words."},
+  {q:"Sam the snail slid slowly. What is it?",a:"Alliteration",c:["Alliteration","Idiom","Simile","Rhyme"],why:"The beginning S sound repeats."},
+  {q:"Which pair rhymes?",a:"cat and mat",c:["cat and mat","cat and wore","sun and cat","book and road"],why:"Cat and mat have the same ending sound."}]},
+ math:{title:"Math",minutes:8,sub:"Subtract within 100",detail:"Solve 4 subtraction problems within 100",cls:"math",color:"#df4c46",icon:"➖",questions:[
+  {q:"52 − 18 = ?",a:"34",c:["34","35","36","40"],why:"52 − 10 = 42, then 42 − 8 = 34."},
+  {q:"60 − 25 = ?",a:"35",c:["35","25","45","40"],why:"60 − 20 = 40, then 40 − 5 = 35."},
+  {q:"83 − 47 = ?",a:"36",c:["36","46","34","40"],why:"Regroup: 13 − 7 = 6 and 7 tens − 4 tens = 3 tens."},
+  {q:"71 − 29 = ?",a:"42",c:["42","52","48","40"],why:"71 − 30 = 41, then add 1 back to get 42."},
+  {q:"94 − 38 = ?",a:"56",c:["56","66","54","62"],why:"94 − 30 = 64, then 64 − 8 = 56."}]},
+ science:{title:"Science",minutes:6,sub:"Force and motion",detail:"Force • Motion • Gravity • Magnets",cls:"science",color:"#159b91",icon:"🧲",questions:[
+  {q:"What is a force?",a:"A push or pull",c:["A push or pull","A change in color","A kind of energy","A distance"],why:"A force is a push or pull on an object."},
+  {q:"What force pulls objects toward Earth?",a:"Gravity",c:["Gravity","Motion","Distance","Repel"],why:"Gravity pulls objects toward the center of Earth."},
+  {q:"Two magnets push away from each other. They…",a:"Repel",c:["Repel","Attract","Borrow","Conserve"],why:"Repel means to push away."},
+  {q:"A force between two touching objects is…",a:"Contact force",c:["Contact force","Noncontact force","Gravity","Distance"],why:"Contact force happens when objects touch."},
+  {q:"The two ends of a magnet are called…",a:"Poles",c:["Poles","Motions","Solutions","Resources"],why:"Magnetic force is strongest at a magnet's poles."}]},
+ social:{title:"Social Studies",minutes:4,sub:"Protecting our environment",detail:"Conserve • Environment • Resources • Pollute",cls:"social",color:"#c69b00",icon:"🌎",questions:[
+  {q:"What does conserve mean?",a:"Protect from harm",c:["Protect from harm","Make dirty","Throw away","Use everything"],why:"To conserve means to protect the environment from harm."},
+  {q:"What is the environment?",a:"Everything around us",c:["Everything around us","Only animals","Only water","One city"],why:"The environment is everything around us."},
+  {q:"Things in nature that people use are…",a:"Natural resources",c:["Natural resources","Solutions","Villages","Forces"],why:"Water, trees, soil, and minerals are natural resources."},
+  {q:"What does pollute mean?",a:"Hurt or dirty the environment",c:["Hurt or dirty the environment","Protect nature","Save water","Plant a tree"],why:"Pollution harms or dirties the environment."}]}
+};
+const order=Object.keys(subjects),state={done:new Set(JSON.parse(localStorage.getItem("dailyDone")||"[]")),score:Number(localStorage.getItem("dailyScore")||0),streak:0,best:Number(localStorage.getItem("dailyBest")||0),sound:true,current:null,deck:[],index:0,answered:false,lightning:false,timer:null,timeLeft:0};
+const $=id=>document.getElementById(id);function shuffle(a){return [...a].sort(()=>Math.random()-.5)}
+function show(id){document.querySelectorAll(".screen").forEach(x=>x.classList.remove("active"));$(id).classList.add("active");scrollTo({top:0,behavior:"smooth"})}
+function save(){localStorage.setItem("dailyDone",JSON.stringify([...state.done]));localStorage.setItem("dailyScore",state.score);localStorage.setItem("dailyBest",state.best)}
+function renderHome(){let grid=$("subjectGrid");grid.innerHTML="";order.forEach(k=>{let s=subjects[k],b=document.createElement("button");b.className=`card ${s.cls} ${state.done.has(k)?"done":""}`;b.innerHTML=`<span class="minutes">${s.minutes}</span><h3>${s.icon} ${s.title}</h3><p>${s.detail}</p><span class="go">${state.done.has(k)?"Practice again":"Start mission"} →</span>`;b.onclick=()=>startSubject(k);grid.appendChild(b)});let unlocked=state.done.size===order.length,b=document.createElement("button");b.className=`card lightning ${unlocked?"":"locked"}`;b.innerHTML=`<span class="minutes">2</span><h3>⚡ Lightning Round</h3><p>One fast question from every subject • 10 seconds each</p><span class="go">${unlocked?"Unlocked—let's go!":"Complete all subjects to unlock"}</span><span class="bolt">⚡</span>`;b.onclick=()=>unlocked?startLightning():alert("Complete all seven subject missions first—or use Jump to Lightning at the top.");grid.appendChild(b);$("completeStat").textContent=`${state.done.size} / 7`;$("scoreStat").textContent=state.score;$("streakStat").textContent=`${state.best} 🔥`;$("dailyProgress").style.width=(state.done.size/7*100)+"%"}
+function startSubject(k){state.current=k;state.lightning=false;state.deck=shuffle(subjects[k].questions).slice(0,3);state.index=0;setupQuiz();renderQuestion()}
+function startLightning(){state.current="lightning";state.lightning=true;state.deck=order.map(k=>({...shuffle(subjects[k].questions)[0],subject:k}));state.index=0;setupQuiz();renderQuestion()}
+function setupQuiz(){let s=state.lightning?{title:"Lightning Round",sub:"Ten seconds per question",color:"#52667a"}:subjects[state.current];$("quizCard").style.setProperty("--accent",s.color);$("quizTitle").textContent=state.lightning?"⚡ Lightning Round":`${s.icon} ${s.title}`;$("quizSub").textContent=s.sub;$("quizCrumb").textContent=state.lightning?"Final challenge":"Daily subject mission";show("quizScreen")}
+function renderQuestion(){clearInterval(state.timer);state.answered=false;let q=state.deck[state.index];$("questionCount").textContent=`${state.index+1} of ${state.deck.length}`;$("quizScore").textContent=`⭐ ${state.score}`;$("quizStreak").textContent=`🔥 ${state.streak}`;$("question").textContent=q.q;$("feedback").textContent="Choose the best answer.";$("feedback").className="feedback";$("nextBtn").classList.remove("show");let a=$("answers");a.innerHTML="";shuffle(q.c).forEach(x=>{let b=document.createElement("button");b.className="answer";b.textContent=x;b.onclick=()=>answer(b,x,q);a.appendChild(b)});if(state.lightning){state.timeLeft=10;$("timerFill").style.transition="none";$("timerFill").style.width="100%";requestAnimationFrame(()=>{$("timerFill").style.transition="width 10s linear";$("timerFill").style.width="0%"});state.timer=setInterval(()=>{state.timeLeft--;if(state.timeLeft<=0){clearInterval(state.timer);timeout(q)}},1000)}else{$("timerFill").style.width="100%"}}
+function answer(btn,x,q){if(state.answered)return;state.answered=true;clearInterval(state.timer);let good=x===q.a;[...$("answers").children].forEach(b=>{b.disabled=true;if(b.textContent===q.a)b.classList.add("correct")});if(good){btn.classList.add("correct");state.score++;state.streak++;state.best=Math.max(state.best,state.streak);$("feedback").textContent=`Correct! ${q.why}`;$("feedback").className="feedback good";tone(740);burst()}else{btn.classList.add("wrong");state.streak=0;$("feedback").textContent=`The answer is ${q.a}. ${q.why}`;$("feedback").className="feedback bad";tone(220)}save();$("quizScore").textContent=`⭐ ${state.score}`;$("quizStreak").textContent=`🔥 ${state.streak}`;$("nextBtn").textContent=state.index===state.deck.length-1?"Finish ✓":"Next →";$("nextBtn").classList.add("show")}
+function timeout(q){if(state.answered)return;state.answered=true;state.streak=0;[...$("answers").children].forEach(b=>{b.disabled=true;if(b.textContent===q.a)b.classList.add("correct")});$("feedback").textContent=`Time! The answer is ${q.a}. ${q.why}`;$("feedback").className="feedback bad";$("nextBtn").textContent=state.index===state.deck.length-1?"Finish ✓":"Next →";$("nextBtn").classList.add("show");save()}
+function next(){if(!state.answered)return;if(++state.index<state.deck.length){renderQuestion();return}finishMission()}
+function finishMission(){clearInterval(state.timer);if(!state.lightning)state.done.add(state.current);save();renderHome();let all=state.done.size===7;$("celebrateEmoji").textContent=state.lightning?"⚡":all?"🔓":"🏆";$("celebrateTitle").textContent=state.lightning?"Lightning conquered!":all?"Lightning unlocked!":"Mission complete!";$("celebrateText").textContent=state.lightning?`Final score: ${state.score}. Best streak: ${state.best}.`:all?"You completed every subject. The Lightning Round is ready!":"Nice work—pick another subject and keep your streak alive.";$("celebrateBtn").textContent=all&&!state.lightning?"Start Lightning Round":"Back to learning path";$("celebrate").classList.add("show");burst(26)}
+function tone(f){if(!state.sound)return;try{let c=new(window.AudioContext||window.webkitAudioContext)(),o=c.createOscillator(),g=c.createGain();o.frequency.value=f;g.gain.value=.06;o.connect(g);g.connect(c.destination);o.start();g.gain.exponentialRampToValueAtTime(.001,c.currentTime+.22);o.stop(c.currentTime+.22)}catch(e){}}
+function burst(n=12){let r=$("quizCard").getBoundingClientRect(),x=r.left+r.width/2,y=Math.min(innerHeight-80,r.top+180);for(let i=0;i<n;i++){let p=document.createElement("span");p.className="confetti";p.textContent=["★","●","◆","✦"][i%4];p.style.color=["#2979ff","#ef8b17","#2aa65a","#8a52d6"][i%4];p.style.left=x+"px";p.style.top=y+"px";let a=Math.PI*2*i/n,d=70+Math.random()*130;p.style.setProperty("--x",Math.cos(a)*d+"px");p.style.setProperty("--y",Math.sin(a)*d+"px");document.body.appendChild(p);setTimeout(()=>p.remove(),900)}}
+$("startBtn").onclick=()=>startSubject(order.find(k=>!state.done.has(k))||order[0]);$("quickBtn").onclick=startLightning;$("nextBtn").onclick=next;$("backBtn").onclick=()=>{clearInterval(state.timer);renderHome();show("home")};$("soundBtn").onclick=()=>{state.sound=!state.sound;$("soundBtn").textContent=state.sound?"🔊 Sound":"🔇 Sound"};$("resetBtn").onclick=()=>{if(confirm("Reset today's progress and score?")){state.done.clear();state.score=0;state.streak=0;state.best=0;save();renderHome()}};$("celebrateBtn").onclick=()=>{let launch=state.done.size===7&&!state.lightning;$("celebrate").classList.remove("show");show("home");if(launch)startLightning()};renderHome();
+</script>
+</body>
+</html>
